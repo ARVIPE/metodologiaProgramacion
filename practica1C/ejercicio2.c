@@ -1,15 +1,25 @@
-#include <stdio.h>
-#include <stdlib.h>
+//Ejercio para empezar a comprender los punteros
+
+#include<stdio.h>
+#include <inttypes.h>
+
+void prueba(int* px){
+
+int y = *px; //Valor que le corresponde a esa direccion
+y = 3;
+*px=y;
+
+}
 
 int main(){
 
-int x = 7 ; /* x is an integer with the value 7 */
-int *px ;   /* px is a pointer to an integer */
+int x = 10; //Variable que le asignamos un valor
+prueba(&x);//Direccion de la variable
 
-px = &x ;   /* px gets the address of x */
-*px = 8 ;   /* the thing pointed to by px (x) gets the value 8 */
 
-printf( "%d\n" , x ) ;  /* show the value of x */
-printf( "%d\n" , &x ) ;  /* show the address of x */
+printf("%" PRIuPTR, (uintptr_t)&x); //Imprimir direccion de la variable en decimal
+printf("\n");
+printf("%p\n", &x); //Imprimir direccion de la variable en hexadecimal
+
 
 }
