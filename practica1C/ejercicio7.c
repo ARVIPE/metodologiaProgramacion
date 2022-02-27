@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <math.h>
 
 void leeVector(int *v, int n)
 {
@@ -20,13 +21,16 @@ void mostrarVector(int *v, int n)
 
 void estadisticasVector(int *v, int n)
 {
-    float suma, media = 0;
+    float suma, media, sumavar, varianza, desv = 0;
     for (int i = 0; i < n; i++)
     {
         suma += v[i];
+        sumavar += pow(v[i], 2);
     }
     media = suma / n;
-    printf("La media del vector pasado es : %f", media);
+    varianza = (sumavar/n)-pow(media,2);
+    desv=sqrt(varianza);
+    printf("La media del vector pasado es : %.2f, la varianza del vector es: %.2f, la desviación típica es: %.2f\n", media,varianza, desv);
 }
 
 int main()
