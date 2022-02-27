@@ -3,7 +3,7 @@
 
 
 void minimo(int num1, int num2){
-
+    
 if(num1>num2){
     printf("El número mayor es : %d\n", num1);
 }else{
