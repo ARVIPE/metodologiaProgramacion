@@ -23,9 +23,8 @@ int** reservarMemoria(int nFil, int nCol){
 }
 
 void rellenarMatriz(int**matriz, int nFil, int nCol){
-    time_t t;
 
-    srand((int) time(&t));
+    srand (time(NULL));
 
     for(int i = 0; i<nFil;i++){
         for(int j=0; j<nCol; j++){
@@ -35,10 +34,34 @@ void rellenarMatriz(int**matriz, int nFil, int nCol){
 }
 
 void imprimeMatriz(int **matriz, int nFil, int nCol){
-    
-    for(int i = 0; i<nFil; i++){
-        for(int j=0; i<nCol; j++){
-            printf("matriz[%d][%d]=%d\n",i,j,matriz[i][j]);
+for(int i = 0; i<nFil; i++){
+    printf("|");
+    for(int j=0; j<nCol; j++){
+        printf("%d|", matriz[i][j]); 
+    }
+    printf("|\n");
+}
+}
+
+int * minCol (int **matriz, int nFil, int nCol){
+	int *min;
+	min = (int *) malloc (nCol*sizeof(int));
+
+    for(int i = 0; i < nCol; i++){
+        min[i]=matriz[0][i];
+        for(int j = 0; j<nFil; j++){
+            if(matriz[j][i]<min[i]){
+                min[i]=matriz[j][i];
+            }
         }
     }
+return min;
+
+}
+
+void liberarMemoria(int **matriz, int nFil){
+    for(int i = 0; i <nFil; i++){
+        free(matriz[i]);
+    }
+    free(matriz);
 }
