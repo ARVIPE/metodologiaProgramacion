@@ -8,6 +8,10 @@ struct Ficha_jugador{
     int estatura;
 };
 
-void reservarVectorStruct(struct Ficha_jugador**v, int nJugadores);
+void reservarVectorStruct(struct Ficha_jugador** v, int nJugadores);
+struct Ficha_jugador rellenarjugador();
+void rellenarVectorJugadores(struct Ficha_jugador* v, int nJugadores);
+void imprimirJugadores(struct Ficha_jugador*v, int nJugadores);
+int borrar_reducirVector_Devolver(struct Ficha_jugador* v, char* cad_a, int nJugadores);
 
 #endif
