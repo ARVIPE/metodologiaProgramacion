@@ -24,6 +24,7 @@ int es_sufijo(char *cadena, char *sufijo){
         if(cadena[i+dif]!=sufijo[i]){
             return 0;
         }
+
     }
     return 1;
 }
