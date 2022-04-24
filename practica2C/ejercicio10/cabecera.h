@@ -1,7 +1,7 @@
 #ifndef CABECERA_H
 #define CABECERA_H
 
-int contadorCaracteres(cad1, cad2, cont);
+int contadorCaracteres(char * cad1, char * cad2, int cont);
 
 
 
