@@ -2,6 +2,8 @@
     "files.associations": {
         "funciones.h": "c",
         "string.h": "c",
-        "cabecera.h": "c"
+        "cabecera.h": "c",
+        "stdio.h": "c",
+        "ctype.h": "c"
     }
 }
