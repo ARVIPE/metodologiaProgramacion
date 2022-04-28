@@ -15,27 +15,22 @@ int comprobarExistencia(char* nombre){
         printf("ERROR: no se encontró fichero");
         exit(-1);
     }
+	
 
-
-    char aux[256];
-    if (fgets(aux,256,nombre)!=NULL || !feof(fichero))
-	{
-		do
-		{
-			if (strcmp(aux,nombre)==0)
+	struct libro l;
+    if (fgets(l.titulo,256,fichero)){
+	//	l.titulo[strlen(l.titulo)-1]='\0';
+	//	fgets(l.autor,256,fichero);
+	//	fscanf(fichero, "%f %f", &l.precio, &l.stock);
+		if (strcmp(l.titulo,nombre)==0)
 			{
 				fclose(fichero);
 				return 2;
 			}
-			int i=0;
-			do
-			{
-				i++;
-			} while (fgets(aux,256,fichero)!=NULL && i<2);
-		}while(fgets(aux,256,fichero)!=NULL);
-		fclose(fichero);
 		return 1;	
 	}
+
+	fclose(fichero);
 
 
 

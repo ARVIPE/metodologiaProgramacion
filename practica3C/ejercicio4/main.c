@@ -7,7 +7,7 @@
 int main(){
     
     int eleccion;
-    char nombre[25];
+    char nombre[500];
 
         printf("Introduzca el numero que corresponde a la operación que desea realizar\n");
 		printf("Pulse 1 para comprobar la existencia de un determinado libro en el stock. \n");
@@ -24,15 +24,17 @@ int main(){
     {
     case 1:
         printf("Introduzca nombre de la obra\n");
-        scanf("%s", nombre);
+        getchar();
+        fgets(nombre, 500, stdin);
         if(comprobarExistencia(nombre) == 2){
-            printf("Este libro está");
+            printf("Este libro está\n");
         }else{
-            printf("No está");
+            printf("No está\n");
         }
+        printf("%s", nombre);
         break;
     case 2:
-        printf("caso 2");
+        
         break;
     
     default:
