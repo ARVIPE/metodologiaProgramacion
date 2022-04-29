@@ -8,6 +8,9 @@ int main(){
     
     int eleccion;
     char nombre[500];
+    char autor[500];
+    float precio;
+    float stock;
 
         printf("Introduzca el numero que corresponde a la operación que desea realizar\n");
 		printf("Pulse 1 para comprobar la existencia de un determinado libro en el stock. \n");
@@ -31,14 +34,25 @@ int main(){
         }else{
             printf("No está\n");
         }
-        printf("%s", nombre);
         break;
     case 2:
-        
+        printf("Introduzca una nueva obra\n");
+        printf("Introduzca el nombre de la obra\n");
+        getchar();
+        fgets(nombre, 500, stdin);
+        printf("Introduzca el autor de la obra\n");
+        fgets(autor, 500, stdin);
+        printf("Introduzca el precio de la obra\n");
+        scanf("%f", &precio);
+        printf("Introduzca la cantidad de unidades\n");
+        scanf("%f", &stock);
+
+        agregarLibro(nombre, autor, precio, stock);
+
         break;
     
     default:
-        printf("Introduzca un numero");
+        printf("Hay %i en total",numLibrosDiferentesEnStock());
         break;
     }
 

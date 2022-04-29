@@ -7,31 +7,104 @@
 
 int comprobarExistencia(char* nombre){
 
-    FILE *fichero;
+    FILE *f;
 
-    fichero=fopen("Almacen_Libreria.txt", "r");
+    f=fopen("Almacen_Libreria.txt", "r");
 
-    if(fichero==NULL){
+    if(f==NULL){
         printf("ERROR: no se encontró fichero");
         exit(-1);
     }
 	
-
 	struct libro l;
-    if (fgets(l.titulo,256,fichero)){
-	//	l.titulo[strlen(l.titulo)-1]='\0';
-	//	fgets(l.autor,256,fichero);
-	//	fscanf(fichero, "%f %f", &l.precio, &l.stock);
-		if (strcmp(l.titulo,nombre)==0)
-			{
-				fclose(fichero);
+	char aux[500];
+  		do{
+			if (strcmp(aux,nombre)==0){
+				fclose(f);
 				return 2;
 			}
+			int i = 0;
+			do{
+				i++;
+			} while (fgets(aux,256,f)!=NULL && i<2);
+		}while(fgets(aux,500,f)!=NULL);
+		fclose(f);
 		return 1;	
+
+}
+
+void agregarLibro(char* nombre, char* autor,float precio, float stock){
+
+	FILE *fichero;
+
+	fichero=fopen("Almacen_Libreria.txt", "a");
+
+	if(fichero==NULL){
+		printf("ERROR: no se encontró el fichero");
+		exit(-1);
 	}
 
-	fclose(fichero);
-
+	struct libro l;
+	fprintf(fichero, "\n%s", nombre);
+	fputs(autor, fichero);
+	fprintf(fichero, "%f %f", precio, stock);
 
 
 }
+
+int numLibrosDiferentesEnStock(){
+
+	FILE *fichero;
+
+	fichero=fopen("Almacen_Libreria.txt", "r");
+
+	if(fichero==NULL){
+		printf("ERROR: no se encontró el fichero");
+		exit(-1);
+	}
+
+	int contador=0;
+	char aux[500];
+	
+	if(fgets(aux, 500, fichero)!=NULL || feof(fichero)){
+		do{
+			contador++;
+			int i = 0;
+			do{
+				i++;
+			} while (fgets(aux,500,fichero)!=NULL && i<2);
+		}while(fgets(aux,500,fichero)!=NULL);
+		fclose(fichero);
+
+		return contador;
+	
+	}
+  	
+
+}
+
+// void venderLibros(char* nombre, float cantidad){
+
+// 	FILE *fichero;
+
+// 	fichero=fopen("Almacen_Libreria.txt", "r");
+
+// 	if(fichero==NULL){
+// 		printf("ERROR: no se encontró el fichero");
+// 		exit(-1);
+// 	}
+
+// 	char aux[500];
+//   		do{
+// 			if (strcmp(aux,nombre)==0){
+// 				fscanf(fichero, "%f %d%c", )
+
+
+
+
+
+// 			}
+// 		}while(fgets(aux,500,fichero)!=NULL);
+// 		fclose(fichero);
+
+// }
