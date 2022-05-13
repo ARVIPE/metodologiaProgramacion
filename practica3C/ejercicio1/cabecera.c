@@ -9,14 +9,14 @@ void cambiar_mayus(char* linea_copiada){
     }
 }
 
-void copiaficheroMAYUS(char* fichero){
+void copiaficheroMAYUS(){
     
     char linea[264];
     FILE *fOrigen;
 
-    fOrigen=fopen(fichero, "r");
+    fOrigen=fopen("arturo", "r");
     if(fOrigen==NULL){
-        printf("\nError al abrir el fichero <%s>", fichero);
+        printf("\nError al abrir el fichero <%s>", "arturo");
         exit(-1);
     }
 
@@ -24,7 +24,7 @@ void copiaficheroMAYUS(char* fichero){
 
     fDestino=fopen("mayusculas-fichero", "w");
     if(fDestino==NULL){
-        printf("\nError, no se pudo crear el fichero <%s>", fichero);
+        printf("\nError, no se pudo crear el fichero <%s>", "arturo.txt");
         exit(-1);
     }
     while(fgets(linea, 264, fOrigen)!=NULL){

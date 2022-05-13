@@ -46,8 +46,6 @@ float mediaFichero(char const *nombre){
 	fclose(f);
 	return (media/naux);
 
-
-
 }
 
 

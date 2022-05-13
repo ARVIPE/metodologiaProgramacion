@@ -9,6 +9,7 @@ struct libro{
 };
 
 int comprobarExistencia(char* nombre);
+void mostrarfichero();
 
 
 #endif

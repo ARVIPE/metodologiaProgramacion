@@ -7,6 +7,8 @@
 int main(){
     
     int eleccion;
+    printf("MOSTRANDO FICHERO....\n");
+    mostrarfichero();
     char nombre[500];
 
         printf("Introduzca el numero que corresponde a la operación que desea realizar\n");

@@ -4,6 +4,7 @@
         "string.h": "c",
         "cabecera.h": "c",
         "stdio.h": "c",
-        "ctype.h": "c"
+        "ctype.h": "c",
+        "stdlib.h": "c"
     }
 }
